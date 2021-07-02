@@ -3,18 +3,23 @@ const bodyParser = require("body-parser"); // looks through the body and retriev
 const https = require("https"); // no need to install because it is a native node module
 const app = express(); // initialze a new express app
 
+
+
+// this is needed to read the document/body page of the html
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
 // request(req)
 // response(res)
-app.get("/", function(req, res) { // route file/ original homepage
+app.get("/", function(req, res) { // route file "/" means original homepage look at the form action
   res.sendFile(__dirname + "/index.html");
 });
 
+// what submitting the form should do
 app.post("/", function(req, res) {
   // cityName is declared in the input html element
+  // get the city name from user input
   const city = req.body.cityName; // no need to parse because it is in string
   console.log(city);
   //openweather map endpoint + path + parameter
@@ -30,6 +35,7 @@ app.post("/", function(req, res) {
       // console.log(data); this is going to be in hex code
 
       // change the hex code to a java object
+      // this is all the data from the API including coordinates, visibility and others
       const weatherData = JSON.parse(data);
       console.log(weatherData);
 
@@ -42,16 +48,17 @@ app.post("/", function(req, res) {
       console.log(temp);
       const descript = weatherData.weather[0].description; // array with only one item
       console.log(descript);
-
+// what the user sees after clicking submit
       res.write("<h1>The temperature in "+city+" is " + temp + "</h1>");
       res.write("<p>with " + descript + "</p>");
-      res.write("<img src =" + imgURL + ">")
+      res.write("<img src =" + imgURL + ">");
       res.send();
     });
   });
 
 });
 
+// weather[0].icon got from using our json thing
 
 // you can only call res.send one time in a get method!!!
 
