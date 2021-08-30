@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser"); // looks through the body and retrieve data based on name
 const https = require("https"); // no need to install because it is a native node module
@@ -23,7 +25,7 @@ app.post("/", function(req, res) {
   const city = req.body.cityName; // no need to parse because it is in string
   console.log(city);
   //openweather map endpoint + path + parameter
-  const url = "https://api.openweathermap.org/data/2.5/weather?q=" +city+ "&units=imperial&appid=0f4b2ca3317b3d1692a30fb9abf05ec1";
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=" +city+ "&units=imperial&appid="+process.env.ID;
   // the response is the data sent back from the openweathermap
   https.get(url, function(response) { // refer to external server
     console.log(response.statusCode); // find the status code
@@ -42,7 +44,7 @@ app.post("/", function(req, res) {
       // JSON.stringify(object) this will turn an JS object into a flat string
       // that will take up the minimum amount of space
 
-      const imgURL = "http://openweathermap.org/img/wn/" + weatherData.weather[0].icon + "@2x.png"
+      const imgURL = "http://openweathermap.org/img/wn/" + weatherData.weather[0].icon + "@2x.png";
 
       const temp = weatherData.main.temp;
       console.log(temp);
@@ -67,6 +69,11 @@ app.post("/", function(req, res) {
 // });
 
 
-app.listen(process.env.PORT || 3000, function() {
-  console.log("server is live #3000");
+let port = process.env.PORT;
+if(port == null || port == ""){
+  port = 3000;
+}
+
+app.listen(port, function() {
+  console.log("Server started on port 3000");
 });
