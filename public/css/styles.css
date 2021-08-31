@@ -1,0 +1,161 @@
+.container-fluid{
+  border-radius: 50px;
+}
+
+.logo{
+  position: absolute;
+  width: 297px;
+  height: 48px;
+  left: 571px;
+  top: 47px;
+}
+
+.logo img{
+  float: left;
+  height: 48px;
+  width: 48px
+}
+
+.logo.img-logo{
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  bottom: 0%;
+  right: 83.84%;
+}
+
+.logo .logo-text{
+  position: absolute;
+  left: 16.16%;
+  right: 0%;
+  top: 10.42%;
+  bottom: 10.42%;
+}
+.logo-text h2{
+  font-family: work Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+#weather{
+  background: #F9F9F9;
+  position: absolute;
+  margin: 184px 843px 147px 102px;
+  width: 495px;
+  height: 569px;
+  border-radius: 50px;
+}
+
+#weather .weather-element{
+  position: absolute;
+  width: 412px;
+  height: 210px;
+  margin: 143px 42px 216px 41px;
+}
+
+.weather-element .live-image{
+  position: absolute;
+  margin-left: 212px;
+  width: 200px;
+  height: 200px;
+}
+
+.weather-element .temp{
+  position: absolute;
+  width: 164px;
+  height: 168px;
+  top: 19px
+  right: 243px;
+  bottom: 21px;
+  left: 5px;
+}
+
+.weather-element .city{
+  position: absolute;
+  width: 58px;
+  height: 19px;
+  left: 12px;
+}
+
+.city h3{
+  color: #808080;
+  font-family: work Sans;
+  font-family: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 19px;
+}
+
+.weather-element .cloudy{
+  position: absolute;
+  width: 85px;
+  height: 21px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  left: 10px;
+  bottom: 0px;
+}
+
+.cloudy .inside-cloudy{
+  position: absolute;
+  width: 39px;
+  height: 9px;
+  top: 6px;
+  right: 23px;
+  bottom: 6px;
+  left: 23px;
+}
+
+.inside-cloudy h3{
+  color: #808080;
+  text-align: center;
+  font-size: 9px;
+  line-height: 9px;
+  font-style: normal;
+  font-family: Work Sans;
+}
+
+.temp .temp-h1{
+  position: absolute;
+  width: 150px;
+  height: 168px;
+
+}
+
+.temp-h1 h1{
+  text-align: center;
+  font-family: urbanist;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 168px;
+}
+
+.live-image img{
+  position: absolute;
+  width: 159.73px;
+  height: 129.9px;
+  top: 30.1px;
+  right: 20.27;
+  bottom: 40px;
+  left: 20px;
+}
+
+#footer p{
+  font-size: 15px;
+  font-weight: 500;
+  font-style: normal;
+  font-family: work Sans;
+  line-height: 21px;
+  color: #000000;
+}
+
+#footer .container-fluid{
+  position: absolute;
+  width: 150px;
+  height: 21px;
+  left: calc(50% - 150px/2);
+  bottom: 25px;
+}
