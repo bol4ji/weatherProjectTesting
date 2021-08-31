@@ -1,21 +1,29 @@
 /*jshint esversion: 6 */
 require("dotenv").config();
 const express = require("express");
+const ejs = require("ejs");
 const bodyParser = require("body-parser"); // looks through the body and retrieve data based on name
 const https = require("https"); // no need to install because it is a native node module
+
+
 const app = express(); // initialze a new express app
+
+app.set('view engine', 'ejs');
+
 
 
 
 // this is needed to read the document/body page of the html
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static("public"));
+
+
 
 // request(req)
 // response(res)
 app.get("/", function(req, res) { // route file "/" means original homepage look at the form action
-  res.sendFile(__dirname + "/index.html");
+  res.render("home");
 });
 
 // what submitting the form should do
