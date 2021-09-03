@@ -1,9 +1,10 @@
 <%- include ("header"); %>
 <section class="homepage">
   <div class="container-fluid">
+    <!--Header / Logo section -->
     <div class="header container">
-      <div class="logo row justify-content-center">
-        <div class="col-xs-6 img-logo">
+      <div class="logo row justify-content-center align-items-center">
+        <div class="col-xs-6 img-logo" >
           <i class="bi bi-clouds-fill"></i>
         </div>
         <div class="col-xs-6 logo-text" style="padding-top: 10px">
@@ -12,29 +13,33 @@
       </div>
     </div>
 
-
-    <div id="weather">
-      <div class="weather-element">
-        <div class="live-image">
-          <img src="https://image.flaticon.com/icons/png/128/1163/1163661.png" alt="">
+    <div class="container overflow-hidden weather">
+      <div class="row gx-5">
+        <div class="col-lg-5 weather-display">
+          <div class="weather-element">
+            <div class="live-image">
+              <img src="https://image.flaticon.com/icons/png/128/1163/1163661.png" alt="">
+            </div>
+            <div class="city">
+              <h3>Lagos</h3>
+            </div>
+            <div class="temp">
+              <div class="temp-h1">
+                <h1> 28 </h1>
+              </div>
+            </div>
+            <div class="cloudy">
+              <div class="inside-cloudy">
+                <h3>Cloudy</h3>
+              </div>
+            </div>
+            </div>
         </div>
-        <div class="city">
-          <h3>Lagos</h3>
+  
+        <div class="col-lg-7 weather-search">
+          
         </div>
-        <div class="temp">
-          <div class="temp-h1">
-            <h1> 28 </h1>
-          </div>
-        </div>
-        <div class="cloudy">
-          <div class="inside-cloudy">
-            <h3>Cloudy</h3>
-          </div>
-
-        </div>
-
-        </div>
-
+      </div>
     </div>
 
   </div>

@@ -5,13 +5,13 @@
   border-radius: 50px;
 }
 div.header{
-  border:solid red 3px;
   width: 100%;
   padding: 20px;
+  margin-bottom: 5%;
 }
 
-div.header .row {
-  /* border: black dotted 3px; */
+div.header .row div {
+  padding: 2px;
 } 
 
 /* .logo{
@@ -54,7 +54,12 @@ div.header .row {
   line-height: 38px;
 }
 
-#weather{
+.weather .row > div {
+  border: solid red 2px;
+  border-radius: 10%;
+}
+
+/* #weather{
   background: #F9F9F9;
   position: absolute;
   margin: 184px 843px 147px 102px;
@@ -173,4 +178,4 @@ div.header .row {
   height: 21px;
   left: calc(50% - 150px/2);
   bottom: 25px;
-}
+} */
