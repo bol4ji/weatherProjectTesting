@@ -15,25 +15,37 @@
 
     <div class="container overflow-hidden weather">
       <div class="row">
-        <div class="col-5 weather-display">
+        <div id="box"class="col-5 weather-display">
           <div class="container">
-            <div class="row"><h3>Lagos</h3></div>
-            <div class="row">
-              <span class="col-6">
+            <div class="row row-bottom-margin"><h3>Lagos</h3></div>
+
+            <div id="temp-sign" class="row align-items-center row-bottom-margin">
+              <span class="col-6 we">
                 <h1 id="temp-indicator">28</h1>
+                <!--<span class="degree"><i class="bi bi-record-circle-fill"></i></span>-->
               </span>
-              <span id="temp-indicator-img" class="col-6">
+              <span id="temp-indicator-img" class="col-6 we">
                 <i class="bi bi-clouds-fill"></i>
               </span>
             </div>
-            <div class="row" id="temp-indicator-text"><p>cloudy</p></div>
-            <div class="row"></div>
-          </div>
-        </div>
 
-        <div class="col-6 weather-search">
+          <div class="row row-bottom-margin" id="temp-indicator-text">
+            <button type="button" class="btn btn-secondary btn-sm rounded-pill" disabled>cloudy</button>
+          </div>
+
+          <div class="row row-bottom-margin" id="more-details">
+            <div class="col"><i class="bi bi-moisture"></i> <pre>18%</pre></div>
+            <div class="col"><i class="bi bi-clock"></i><pre>08:00AM</pre></div>
+            <div class="col"><i class="bi bi-calendar-week"></i><pre>SEP 9 2021</pre></div>
+          </div>
+
+        </div>
+      </div>
+
+        <div id="box" class="col-6 weather-search">
           <!-- Weather search -->
         </div>
+
       </div>
     </div>
 
