@@ -1,45 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
+
+:root {
+  --prycolor: #1D67F1;
+  --seccolor: #03A9F4; 
+  --gray: #545458;
+}
+
 .container-fluid{
   border-radius: 50px;
 }
 
-.logo{
+h1 {
+  font-size: 140px;
+  font-family: "urbanist";
+  color: var(--prycolor);
+}
+
+h3{
+  font-family: "Work Sans";
+  font-weight: 600;
+  color: var(--gray);
+}
+
+p {
+  font-size: 16px;
+  color: var(--gray);
+}
+
+pre{
+  text-transform: uppercase;
+  font-family: "work sans";
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--prycolor);
+}
+
+#footer-head {
+  font-size: 14px;
+  color: red;
+}
+
+div.header{
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 5%;
+}
+
+div.header .row div {
+  padding: 2px;
+} 
+
+div.header .logo div.img-logo {
+  transform: scaleX(-1);
+}
+
+/* .logo{
   position: absolute;
-  width: 297px;
+  width: 1000px;
   height: 48px;
   left: 571px;
   top: 47px;
-}
+} */
 
-.logo img{
-  float: left;
+ .logo img{
   height: 48px;
   width: 48px
 }
 
-.logo.img-logo{
+.logo i {
+ font-size: 48px;
+ color: #1D67F1;
+}
+
+/* .logo.img-logo{
   position: absolute;
   left: 0%;
   top: 0%;
   bottom: 0%;
   right: 83.84%;
-}
+} */
 
-.logo .logo-text{
+/* .logo .logo-text{
   position: absolute;
   left: 16.16%;
   right: 0%;
   top: 10.42%;
   bottom: 10.42%;
-}
+} */
 .logo-text h2{
-  font-family: work Sans;
+  font-family: "Work Sans";
   font-style: normal;
-  font-weight: bold;
   font-size: 32px;
+  font-weight: 700;
   line-height: 38px;
 }
 
-#weather{
+/* .row-bottom-margin{
+  margin-bottom: 10px;
+  border: 1px solid black;
+}  */
+
+div.spacer{
+  padding: 10px;
+}
+
+#box{
+  padding: 10% 2.5%;
+  height: 1000px;
+  background-color: #F9F9F9;
+  margin-left: 2%;
+  margin-right: 2%;
+  height: 500px;
+  border-radius: 8%;
+}
+
+#temp-sign, #temp-indicator-text{
+  height: fit-content;
+}
+
+.degree {
+  font-size: 10px;
+}
+
+.we{
+  padding: 0px;
+  /* border:1px solid black; */
+  line-height: 140px;
+  margin: 0px;
+}
+
+#temp-indicator-img i{
+  font-size: 140px;
+  color: var(--seccolor);
+}
+
+#temp-indicator-text button{
+  width: 100px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 0px;
+  color: #808080;
+}
+
+#temp-indicator-text p{
+  font-size: 12px;
+}
+
+#more-details {
+  color: var(--prycolor);
+  align-items:center;
+  margin-top: 25px;
+}
+
+/* weather search css start*/
+
+
+/* weather search css end*/
+
+footer {
+  margin-top: 6%;
+}
+
+/* #weather{
   background: #F9F9F9;
   position: absolute;
   margin: 184px 843px 147px 102px;
@@ -158,4 +282,11 @@
   height: 21px;
   left: calc(50% - 150px/2);
   bottom: 25px;
-}
+} */
+
+/* useless codes */
+/* div.row .we{
+  border: 2px solid black;
+  margin-left: 2%;
+  margin-right: 2%;
+} */
