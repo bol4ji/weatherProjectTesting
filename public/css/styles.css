@@ -189,7 +189,12 @@ div.spacer{
 }
 
 #rand-cities button{
-  border-radius: 20px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-family: "work sans";
+  padding: 10px 30px;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 /* weather search css end*/
