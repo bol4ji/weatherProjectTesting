@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
@@ -110,6 +110,7 @@ div.spacer{
 #box{
   padding: 10% 2.5%;
   height: 1000px;
+  width: fit-content;
   background-color: #F9F9F9;
   margin-left: 2%;
   margin-right: 2%;
@@ -128,7 +129,14 @@ div.spacer{
 .we{
   padding: 0px;
   /* border:1px solid black; */
-  line-height: 140px;
+  /* line-height: 140px; */
+  margin: 0px;
+}
+
+.wef{
+  padding: 5px 5px;
+  /* border:1px solid black; */
+  /* line-height: 140px; */
   margin: 0px;
 }
 
@@ -155,7 +163,39 @@ div.spacer{
 }
 
 /* weather search css start*/
+.frm-dsn input{
+  height: 80px;
+  border: 1px solid #E0E0E0;
+  border-radius: 20px;
+  color: var(--gray);
+  padding-left: 8%;
+  font-family: "work sans";
+  font-size: 28px;
+  font-weight: 500;
+}
 
+.frm-dsn button {
+  width:80px;
+  height: 80px;
+  border-radius: 20px;
+}
+
+.frm-dsn button i{
+  font-size: 32px;
+}
+
+#rand-cities{
+  margin-top: 40px;
+}
+
+#rand-cities button{
+  border-radius: 15px;
+  font-size: 16px;
+  font-family: "work sans";
+  padding: 10px 30px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
 
 /* weather search css end*/
 
