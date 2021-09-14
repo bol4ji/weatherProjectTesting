@@ -18,11 +18,37 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
+const date = new Date();
+
 
 
 // request(req)
 // response(res)
 app.get("/", function(req, res) { // route file "/" means original homepage look at the form action
+  const defaultCity = "lagos";
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=" +defaultCity+ "&units=imperial&appid="+process.env.ID;
+  https.get(url, function(res){
+    console.log(res.statusCode); // returns 200 if the api call is good
+
+    res.on("data", function(data){
+      const currentWeatherData = JSON.parse(data); // convert hex code to JSON
+      console.log(currentWeatherData);
+      const temp = currentWeatherData.main.temp;
+      const formatTemp = Math.round(temp);
+      console.log(formatTemp);
+      const humidity = currentWeatherData.main.humidity;
+      console.log(humidity+"%");
+      console.log(currentWeatherData.name); // name of city
+      console.log(currentWeatherData.weather[0].description);
+      const currentDate = date.toDateString();
+      const formatDate = currentDate.substring(currentDate.indexOf(" ") + 1); // format date for J
+      console.log(formatDate);
+      const currentTime = date.toLocaleTimeString();
+      console.log(currentTime.substring(0, 5) + currentTime.substring(8, currentTime.length));
+      const formatTime = currentTime.substring(0, 5) + currentTime.substring(8, currentTime.length);
+
+    });
+  });
   res.render("home");
 });
 
