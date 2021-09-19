@@ -17,11 +17,11 @@
       <div class="row">
         <div id="box"class="col-5 weather-display">
           <div class="container">
-            <div class="row row-bottom-margin"><h3>Lagos</h3></div>
+            <div class="row row-bottom-margin"><h3><%= cityName %></h3></div>
 
             <div id="temp-sign" class="row align-items-center row-bottom-margin">
               <span class="col-6 we">
-                <h1 id="temp-indicator">28</h1>
+                <h1 id="temp-indicator"><%=temp%></h1>
                 <!--<span class="degree"><i class="bi bi-record-circle-fill"></i></span>-->
               </span>
               <span id="temp-indicator-img" class="col-6 we">
@@ -30,13 +30,13 @@
             </div>
 
           <div class="row row-bottom-margin" id="temp-indicator-text">
-            <button type="button" class="btn btn-secondary btn-sm rounded-pill" disabled>cloudy</button>
+            <button type="button" class="btn btn-secondary btn-sm rounded-pill" disabled><%= description %></button>
           </div>
 
           <div class="row row-bottom-margin" id="more-details">
-            <div class="col"><i class="bi bi-moisture"></i> <pre>18%</pre></div>
-            <div class="col"><i class="bi bi-clock"></i><pre>08:00AM</pre></div>
-            <div class="col"><i class="bi bi-calendar-week"></i><pre>SEP 9 2021</pre></div>
+            <div class="col"><i class="bi bi-moisture"></i> <pre><%=humid%></pre></div>
+            <div class="col"><i class="bi bi-clock"></i><pre><%= timeFormat %></pre></div>
+            <div class="col"><i class="bi bi-calendar-week"></i><pre><%= formatDate %></pre></div>
           </div>
 
         </div>
@@ -46,17 +46,36 @@
           <!-- Weather search -->
           <div class="container">
 
-            <form class="search-form">
+            <form class="search-form" action="/" method="post">
               <div class="row">
-                <div class="col-10 frm-dsn wef"><input type="text" class="form-control" placeholder="Winninpeg, Manitoba"></div>
+                <div class="col-10 frm-dsn wef"><input type="text" class="form-control" placeholder="Enter City Name" name="cityName"></div>
                 <div class="col-2 frm-dsn wef"><button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button></div>
               </div>
               <div id="rand-cities" class="row">
-                <button type="button" class="btn btn-outline-primary btn-lg">Dubai</button>
-                <button type="button" class="btn btn-outline-primary btn-lg">Accra, Ghana</button>
+
+                <% cities.forEach(function (city){ %>
+                  <button type="submit" class="btn btn-outline-primary btn-lg"  value=<%=city%> name="cityNameBtn"><%=city%></button>
+                <% }) %>
+
+                <!-- <button type="button" class="btn btn-outline-primary btn-lg">Dubai</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">Accra</button> -->
               </div>
             </form>
-            
+
             <div id="rnd-cities" class="row">
 
             </div>

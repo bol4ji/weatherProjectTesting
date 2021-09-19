@@ -20,6 +20,22 @@ app.use(express.static("public"));
 
 const date = new Date();
 
+const cities = [
+  "Accra",
+  "Manchester",
+  "Copenhagen",
+  "Montreal",
+  "Prague",
+  "Amsterdam",
+  "Porto",
+  "Tokyo",
+  "Moscow",
+  "Dubai",
+  "Stockholm",
+  "Varna",
+  "Caracas",
+];
+
 
 
 // request(req)
@@ -27,36 +43,50 @@ const date = new Date();
 app.get("/", function(req, res) { // route file "/" means original homepage look at the form action
   const defaultCity = "lagos";
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" +defaultCity+ "&units=imperial&appid="+process.env.ID;
-  https.get(url, function(res){
+  https.get(url, function(response){
     console.log(res.statusCode); // returns 200 if the api call is good
 
-    res.on("data", function(data){
+    response.on("data", function(data){
       const currentWeatherData = JSON.parse(data); // convert hex code to JSON
       console.log(currentWeatherData);
-      const temp = currentWeatherData.main.temp;
-      const formatTemp = Math.round(temp);
-      console.log(formatTemp);
-      const humidity = currentWeatherData.main.humidity;
-      console.log(humidity+"%");
-      console.log(currentWeatherData.name); // name of city
-      console.log(currentWeatherData.weather[0].description);
+      const formatTemp = Math.round(currentWeatherData.main.temp);
+      const cityName = currentWeatherData.name;
+      const humidity = currentWeatherData.main.humidity + "%";
+      const description = currentWeatherData.weather[0].main;
+      const descriptiontv = currentWeatherData.weather[0].description;
       const currentDate = date.toDateString();
       const formatDate = currentDate.substring(currentDate.indexOf(" ") + 1); // format date for J
       console.log(formatDate);
       const currentTime = date.toLocaleTimeString();
-      console.log(currentTime.substring(0, 5) + currentTime.substring(8, currentTime.length));
-      const formatTime = currentTime.substring(0, 5) + currentTime.substring(8, currentTime.length);
+      console.log(currentTime);
+      const index = currentTime.indexOf(":", currentTime.indexOf(":") + 1);
+      const timeFormat = currentTime.substring(0, index) + currentTime.substring(currentTime.indexOf(" "), currentTime.length);
 
+      res.render("home",{
+        temp: formatTemp,
+        humid: humidity,
+        cityName: cityName,
+        timeFormat: timeFormat,
+        formatDate: formatDate,
+        description: description,
+        cities: cities
+      });
     });
   });
-  res.render("home");
 });
 
 // what submitting the form should do
 app.post("/", function(req, res) {
   // cityName is declared in the input html element
   // get the city name from user input
-  const city = req.body.cityName; // no need to parse because it is in string
+var finalCityName;
+
+if(req.body.cityName == ""){
+  finalCityName = req.body.cityNameBtn;
+}else{
+  finalCityName = req.body.cityName;
+}
+  const city = finalCityName; // no need to parse because it is in string
   console.log(city);
   //openweather map endpoint + path + parameter
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" +city+ "&units=imperial&appid="+process.env.ID;
@@ -72,23 +102,36 @@ app.post("/", function(req, res) {
 
       // change the hex code to a java object
       // this is all the data from the API including coordinates, visibility and others
-      const weatherData = JSON.parse(data);
-      console.log(weatherData);
+      const currentWeatherData = JSON.parse(data);
+      console.log(currentWeatherData);
 
       // JSON.stringify(object) this will turn an JS object into a flat string
       // that will take up the minimum amount of space
 
-      const imgURL = "http://openweathermap.org/img/wn/" + weatherData.weather[0].icon + "@2x.png";
+      const imgURL = "http://openweathermap.org/img/wn/" + currentWeatherData.weather[0].icon + "@2x.png";
 
-      const temp = weatherData.main.temp;
-      console.log(temp);
-      const descript = weatherData.weather[0].description; // array with only one item
-      console.log(descript);
-// what the user sees after clicking submit
-      res.write("<h1>The temperature in "+city+" is " + temp + "</h1>");
-      res.write("<p>with " + descript + "</p>");
-      res.write("<img src =" + imgURL + ">");
-      res.send();
+      const formatTemp = Math.round(currentWeatherData.main.temp);
+      const cityName = currentWeatherData.name;
+      const humidity = currentWeatherData.main.humidity + "%";
+      const description = currentWeatherData.weather[0].main;
+      const descriptiontv = currentWeatherData.weather[0].description;
+      const currentDate = date.toDateString();
+      const formatDate = currentDate.substring(currentDate.indexOf(" ") + 1); // format date for J
+      console.log(formatDate);
+      const currentTime = date.toLocaleTimeString();
+      console.log(currentTime);
+      const index = currentTime.indexOf(":", currentTime.indexOf(":") + 1);
+      const timeFormat = currentTime.substring(0, index) + currentTime.substring(currentTime.indexOf(" "), currentTime.length);
+
+      res.render("home",{
+        temp: formatTemp,
+        humid: humidity,
+        cityName: cityName,
+        timeFormat: timeFormat,
+        formatDate: formatDate,
+        description: description,
+        cities: cities
+      });
     });
   });
 
